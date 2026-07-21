@@ -3,8 +3,8 @@ import { getMeetings } from "@/lib/meeting-db";
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const date = searchParams.get("date");
+  const date = searchParams.get("date") || "";
 
-  const meetings = getMeetings(date);
+  const meetings = await getMeetings(date);
   return NextResponse.json(meetings);
 }

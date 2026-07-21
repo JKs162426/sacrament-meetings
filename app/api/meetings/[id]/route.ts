@@ -16,7 +16,7 @@ export async function GET(_req: NextRequest, { params }: Props) {
     );
   }
 
-  const meeting = getMeetingById(id);
+  const meeting = await getMeetingById(id);
 
   if (!meeting) {
     return NextResponse.json({ error: "Meeting not found" }, { status: 404 });

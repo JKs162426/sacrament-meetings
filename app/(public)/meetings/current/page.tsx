@@ -9,9 +9,9 @@ function getMostRecentSunday(): string {
   return sunday.toISOString().split("T")[0];
 }
 
-export default function CurrentMeetingPage() {
+export default async function CurrentMeetingPage() {
   const sundayDate = getMostRecentSunday();
-  const meetings = getMeetings(sundayDate);
+  const meetings = await getMeetings(sundayDate);
 
   if (meetings.length === 0) {
     return (
