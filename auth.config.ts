@@ -9,8 +9,7 @@ export const authConfig = {
       const isLoggedIn = !!auth?.user;
       const isAdminRoute =
         nextUrl.pathname.startsWith("/meetings/new") ||
-        (nextUrl.pathname.startsWith("/meetings") &&
-          nextUrl.pathname.includes("edit"));
+        nextUrl.pathname.includes("/edit");
 
       if (isAdminRoute) {
         return isLoggedIn;
