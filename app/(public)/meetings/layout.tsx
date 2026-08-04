@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { signOut } from "@/auth";
+import { auth } from "@/auth";
 
 export default function MeetingsLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const session = auth();
   return (
     <div>
       <div className="flex gap-4 mb-6 border-b border-[#031926] pb-3">
