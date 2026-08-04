@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { signOut } from "@/auth";
 
 export default function MeetingsLayout({
   children,
@@ -20,6 +21,19 @@ export default function MeetingsLayout({
         >
           Current Meeting
         </Link>
+        <form
+          action={async () => {
+            "use server";
+            await signOut({ redirectTo: "/login" });
+          }}
+        >
+          <button
+            type="submit"
+            className="text-sm font-medium hover:underline text-red-600"
+          >
+            Sign Out
+          </button>
+        </form>
       </div>
       {children}
     </div>
